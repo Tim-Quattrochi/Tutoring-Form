@@ -1,0 +1,53 @@
+@import "./Styles/variables";
+@import "./Styles/mixins";
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  height: 100vh;
+  background-color: $background-color;
+}
+
+form {
+  @include form;
+}
+
+.error {
+  color: $error-color;
+  font-size: 1rem;
+  text-align: left;
+  margin-top: 0.25rem;
+  width: 10rem;
+}
+
+.checkbox {
+  @include checkbox;
+}
+
+input,
+label {
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+
+label {
+  margin: 2px;
+}
+
+button {
+  color: white;
+  background-color: $btn-color;
+  width: min-content;
+  border-radius: 2px;
+  height: 2rem;
+  @include mx-auto;
+}
+
+button:disabled {
+  @include btn-loading;
+}
+
+@include outlineFocus("text");
+@include outlineFocus("email");

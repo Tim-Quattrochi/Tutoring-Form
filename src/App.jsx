@@ -1,10 +1,17 @@
-import { ErrorMessage, Field, Formik, Form } from "formik";
-import * as Yup from "yup";
+import { Formik, Form } from "formik";
 import TextInput from "./components/TextInput";
+import SelectInput from "./components/SelectInput";
+import CheckBoxInput from "./components/CheckBoxInput";
 
-import "./App.css";
+import { validationSchema } from "./schemas";
 
 function App() {
+  const handleSubmit = async (values, actions) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    console.log(actions);
+    actions.resetForm();
+  };
+
   return (
     <div>
       <h1>1 on 1 Coaching Prep for Tim Quattrochi</h1>
@@ -15,29 +22,11 @@ function App() {
           cohort: "",
           link: "",
           assignment: "",
+          cohortType: "",
+          acceptedTOS: false,
         }}
-        validationSchema={Yup.object({
-          name: Yup.string()
-            .max(15, "Must be 15 characters or less")
-            .required("Name is Required"),
-
-          email: Yup.string()
-            .email("Invalid email address")
-            .required("Email is Required"),
-          cohort: Yup.string()
-            .max(15, "Must be 15 characters or less")
-            .required("Cohort is Required"),
-          link: Yup.string()
-            .url()
-            .url("Invalid URL")
-            .required("Repo URL is Required"),
-        })}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
-        }}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
       >
         {({ isSubmitting }) => (
           <Form>
@@ -73,6 +62,21 @@ function App() {
               type="text"
               placeholder=""
             />
+
+            <SelectInput
+              label="select cohort"
+              name="cohortType"
+              placeholder="Please select a cohort"
+            >
+              <option value="">Please select a cohort</option>
+              <option value="FSWD Term 1">FSWD Term 1</option>
+              <option value="FSWD Term 2">FSWD Term 2</option>
+              <option value="FSWD Term 3">FSWD Term 3</option>
+            </SelectInput>
+
+            <CheckBoxInput name="acceptedTOS">
+              I agree to confirm appointment via Slack DM
+            </CheckBoxInput>
 
             <button type="submit" disabled={isSubmitting}>
               {" "}
