@@ -1,5 +1,6 @@
 const dotenv = require("dotenv").config();
 const nodemailer = require("nodemailer");
+const timeStamp = require("./timeStamp");
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -12,28 +13,38 @@ const transporter = nodemailer.createTransport({
 });
 
 module.exports = {
-  verifyUserEmail: async function verifyUserEmail(
+  sendNotificationToAdmin: async function sendNotificationToAdmin(
     name,
     email,
     cohortType,
     link,
-    assignment
+    assignment,
+    addDetails,
+    emailResponses
   ) {
     try {
-      let info = await transporter.sendMail({
+      await transporter.sendMail({
         from: process.env.EMAIL,
         to: process.env.EMAIL,
-        subject: "New Coaching Prep Form Submission",
-        html: `Hi there, ${name} just submitted a prep form with the following information
-            <h1>${name}</h1>
-           <br> Email: ${email}
-           <br> Cohort: ${cohortType}
-           <br> Link to Repo ${link}
-           <br> Assignment: ${assignment}
+        cc: emailResponses ? email : null,
+        subject: `New Coaching Prep Form Submission - ${name}`,
+        html: `<p>Hi there, ${name} just submitted a Tutoring prep form with the following information:</p>
+          <br>
+           <p> <strong>Email:</strong> ${email}</p>
+           
+           <p> <strong>Cohort:</strong> ${cohortType}</p>
+        
+           <p> <strong>Link to Repo:</strong> ${link}</p>
+          
+           <p> <strong>Assignment:</strong> ${assignment}</p>
+           <p> <strong>Additional Details:</strong> ${
+             addDetails ? addDetails : "None Provided."
+           }</p>
+           <br>
+
+          <p>This form was submitted on: ${timeStamp()}</p>
           `,
       });
-      console.log(process.env.HASHED_PASS);
-      console.log(process.env.EMAIL);
     } catch (err) {
       console.log(err);
     }

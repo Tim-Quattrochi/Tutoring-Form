@@ -3,17 +3,15 @@ import TextInput from "./components/TextInput";
 import axios from "axios";
 import SelectInput from "./components/SelectInput";
 import CheckBoxInput from "./components/CheckBoxInput";
+import TextArea from "./components/TextArea";
 
 import { validationSchema } from "./schemas";
 
 function App() {
   const handleSubmit = async (values, actions) => {
     try {
-      const response = await axios.post(
-        "http://localhost:3001/api/v1/form",
-        values
-      );
-      console.log(response.data);
+      await axios.post("http://localhost:3001/api/v1/form", values);
+
       actions.resetForm();
     } catch (error) {
       console.log(error);
@@ -27,11 +25,11 @@ function App() {
         initialValues={{
           name: "",
           email: "",
-          cohort: "",
           link: "",
           assignment: "",
           cohortType: "",
-          acceptedTOS: false,
+          addDetails: "",
+          emailResponses: false,
         }}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
@@ -39,25 +37,19 @@ function App() {
         {({ isSubmitting }) => (
           <Form>
             <TextInput
-              label="name"
+              label="Name"
               name="name"
               type="text"
               placeholder="name"
             />
 
             <TextInput
-              label="email"
+              label="Email"
               name="email"
               type="email"
               placeholder="email"
             />
 
-            <TextInput
-              label="What is the name of your program/cohort?"
-              name="cohort"
-              type="text"
-              placeholder="cohort"
-            />
             <TextInput
               label="Please paste your repository link below"
               name="link"
@@ -72,7 +64,7 @@ function App() {
             />
 
             <SelectInput
-              label="select cohort"
+              label="Which Cohort are you in?"
               name="cohortType"
               placeholder="Please select a cohort"
             >
@@ -82,8 +74,14 @@ function App() {
               <option value="FSWD Term 3">FSWD Term 3</option>
             </SelectInput>
 
-            <CheckBoxInput name="acceptedTOS">
-              I agree to confirm appointment via Slack DM
+            <TextArea
+              label="Additional details you would like to share"
+              name="addDetails"
+              placeholder=""
+            />
+
+            <CheckBoxInput name="emailResponses">
+              Send me a copy of my responses.
             </CheckBoxInput>
 
             <button type="submit" disabled={isSubmitting}>

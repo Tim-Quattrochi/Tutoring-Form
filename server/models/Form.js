@@ -22,6 +22,9 @@ const FormSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    additionalDetails: {
+      type: String,
+    },
   },
   { timeStamps: true }
 );

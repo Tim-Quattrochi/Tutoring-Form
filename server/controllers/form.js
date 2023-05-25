@@ -1,7 +1,7 @@
 const {
   transporter,
   mailInfo,
-  verifyUserEmail,
+  sendNotificationToAdmin,
 } = require("../config/nodemailer");
 const Form = require("../models/Form");
 
@@ -13,7 +13,8 @@ const retrieveForm = async (req, res) => {
     link,
     assignment,
     cohortType,
-    acceptedTOS,
+    addDetails,
+    emailResponses,
   } = req.body;
 
   try {
@@ -24,12 +25,18 @@ const retrieveForm = async (req, res) => {
       link,
       assignment,
       cohortType,
-      acceptedTOS,
+      addDetails,
     });
 
-    verifyUserEmail(name, email, cohortType, link, assignment);
-
-    console.log(process.env.HASHED_PASS);
+    sendNotificationToAdmin(
+      name,
+      email,
+      cohortType,
+      link,
+      assignment,
+      addDetails,
+      emailResponses ? emailResponses : null
+    );
 
     res.status(201).json(formResponse);
   } catch (error) {
