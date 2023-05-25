@@ -22,10 +22,6 @@ const FormSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    acceptedTOS: {
-      type: Boolean,
-      required: true,
-    },
   },
   { timeStamps: true }
 );

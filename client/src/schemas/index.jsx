@@ -9,10 +9,6 @@ export const validationSchema = yup.object().shape({
     .string()
     .max(30, "Must be 15 characters or less")
     .required("Name is Required"),
-  cohort: yup
-    .string()
-    .max(15, "Must be 15 characters or less")
-    .required("Cohort is Required"),
   link: yup
     .string()
     .url()
@@ -22,7 +18,4 @@ export const validationSchema = yup.object().shape({
     .string()
     .oneOf(["FSWD Term 1", "FSWD Term 2", "FSWD Term 3", "Other"])
     .required("Please select a cohort."),
-    acceptedTOS: yup.boolean()
-    .required('Required')
-    .oneOf([true], 'You must accept the terms and conditions.'),
 });
