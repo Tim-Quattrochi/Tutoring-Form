@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon --exec node server.js",
+    "build": "node server.js"
+  },
+  "author": "Tim Quattrochi",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "concurrently": "^7.6.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.2",
+    "nodemon": "^2.0.21"
+  }
+}

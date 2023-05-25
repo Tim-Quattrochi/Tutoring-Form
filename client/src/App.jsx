@@ -1,5 +1,6 @@
 import { Formik, Form } from "formik";
 import TextInput from "./components/TextInput";
+import axios from "axios";
 import SelectInput from "./components/SelectInput";
 import CheckBoxInput from "./components/CheckBoxInput";
 
@@ -7,9 +8,16 @@ import { validationSchema } from "./schemas";
 
 function App() {
   const handleSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(actions);
-    actions.resetForm();
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/api/v1/form",
+        values
+      );
+      console.log(response.data);
+      actions.resetForm();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
