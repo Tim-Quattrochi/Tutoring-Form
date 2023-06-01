@@ -14,7 +14,10 @@ const PrepForm = () => {
 
   const handleSubmit = async (values, actions) => {
     try {
-      await axios.post("http://localhost:3001/api/v1/form", values);
+      await axios.post(
+        "https://coach-form-server.onrender.com/api/v1/form",
+        values
+      );
 
       actions.resetForm();
       navigate("thank-you", { state: values });
