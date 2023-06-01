@@ -9,7 +9,7 @@ const app = express();
 connectDB();
 
 //middleware
-app.use(cors());
+app.use(cors({ origin: "https://tutoringform-client.onrender.com" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
