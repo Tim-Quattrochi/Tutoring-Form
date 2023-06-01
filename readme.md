@@ -8,13 +8,19 @@ I've deployed my site using Render's cloud infrastructure. [Deployed here]
 
 This is a personalized form exclusively for my learners, tailored to streamline our one-on-one tutoring sessions. This form serves as a valuable tool for me to gather essential information in advance. It facilitates communication by emailing me the responses while also providing learners with the convenience of receiving a copy of their submitted responses directly to their email inbox. This integrated approach ensures optimal preparation, efficient coordination, and a smooth tutoring experience for all involved.
 
-# Reflection
+# Why Formik?
 
 I have built many forms in React before from scratch. Forms and validation can become complex, I wanted to work with Formik. With Formik, I am able to simplify form management, streamline validation logic, and enhance the overall user experience, ultimately saving time and effort in the development cycle.
 
 To enhance the validation capabilities of Formik, I chose to integrate Yup, a powerful schema validation library, as recommended by the Formik Documentation. By combining the strengths of Formik and Yup, I can effortlessly define and enforce validation rules, handle error messages, and ensure data integrity, all while maintaining a seamless and intuitive form experience for users.
 
+# Email sending capabilities
+
 I took the opportunity to enhance my backend development skills by integrating Nodemailer, a reliable and versatile email-sending solution, with SMTP Gmail. This experience allows me to proficiently handle email communication on the backend, leveraging Nodemailer's capabilities to ensure secure transmission of information and seamless delivery of messages through the trusted SMTP protocol provided by Gmail.
+
+# I wanted to get experience with Sass
+
+I wanted experience with Sass, an incredibly versatile CSS preprocessor. Immersing myself in Sass allowed me to gain hands-on experience with its remarkable features, including variables, nesting, mixins, and more making writing CSS fun.
 
 # Development
 
@@ -28,7 +34,7 @@ from the root directory
 npm install
 ```
 
-Create a .env file in the server directory and add your values.
+Create a `.env` file in the server directory and add your secret environment values.
 
 For example:
 
