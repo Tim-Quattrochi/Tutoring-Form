@@ -1,43 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;600&display=swap");
 #root {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
   box-sizing: border-box;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  padding: 0;
   text-align: center;
-  background-color: #ffe4c4;
+  background-color: #fff8e7;
+}
+
+h1 {
+  font-size: 26px;
+  color: #000080;
+}
+@media (max-width: 900px) {
+  h1 {
+    font-size: 15px;
+  }
+}
+
+select {
+  height: 2rem;
+  text-align: center;
+  width: 75%;
+}
+
+.form-wrapper {
+  background-color: #fff8e7;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  margin: 0px;
+}
+@media (max-width: 900px) {
+  .form-wrapper {
+    flex-wrap: wrap;
+  }
 }
 
 form {
   display: flex;
   flex-wrap: wrap;
+  border-radius: 10px;
+  margin-top: 10%;
   flex-direction: column;
   align-content: center;
+  align-items: center;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  background-color: #faebd7;
+}
+
+.error-container {
+  display: flex;
+  justify-content: center;
+}
+
+.error-container::after {
+  border-color: #ffffff !important;
 }
 
 .error {
   color: #ff0000;
-  font-size: 1rem;
-  text-align: left;
-  margin-top: 0.25rem;
-  width: 10rem;
+  font-size: 0.75rem;
+  text-align: right;
+  background-color: rgb(242, 203, 203);
+}
+
+.input-error {
+  border-color: #ff0000;
 }
 
 .checkbox {
   display: flex;
+  flex-direction: column;
+  font-weight: 200;
+  margin-left: 2px;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 3rem;
+}
+
+input {
+  width: 75%;
 }
 
 input,
 label {
-  padding: 12px 20px;
+  padding: 5px 10px;
   margin: 8px 0;
 }
 
 label {
+  font-size: 14px;
+  font-weight: 200;
   margin: 2px;
   font-weight: bold;
+  text-align: left;
 }
 
 button {
@@ -56,7 +115,7 @@ textarea,
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 100%;
+  width: 85%;
   height: 10rem;
   resize: none;
   padding: 5px;
@@ -71,12 +130,19 @@ button:disabled::after {
   content: "...";
 }
 
+img {
+  width: 300px;
+  height: 75%;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
 input[type=text]:focus {
   outline: none;
   transition: 1s;
 }
 input[type=text]:focus:focus {
-  border: 2px solid #3749ea;
+  border: 2px solid #c7c7cf;
 }
 
 input[type=email]:focus {
@@ -84,5 +150,13 @@ input[type=email]:focus {
   transition: 1s;
 }
 input[type=email]:focus:focus {
-  border: 2px solid #3749ea;
+  border: 2px solid #c7c7cf;
+}
+
+input[type=checkbox]:focus {
+  outline: none;
+  transition: 1s;
+}
+input[type=checkbox]:focus:focus {
+  border: 2px solid #c7c7cf;
 }/*# sourceMappingURL=App.css.map */

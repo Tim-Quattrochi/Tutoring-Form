@@ -1,40 +1,91 @@
 @import "./Styles/variables";
 @import "./Styles/mixins";
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;600&display=swap");
+
 #root {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
   box-sizing: border-box;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  padding: 0;
   text-align: center;
   background-color: $background-color;
+}
+
+h1 {
+  font-size: 26px;
+  color: $dark-blue;
+
+  @include respond-medium {
+    font-size: 15px;
+  }
+}
+
+select {
+  height: 2rem;
+  text-align: center;
+  width: 75%;
+}
+
+.form-wrapper {
+  background-color: $background-color;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  margin: 0px;
+
+  @include respond-medium {
+    flex-wrap: wrap;
+  }
 }
 
 form {
   @include form;
 }
 
+.error-container {
+  display: flex;
+  justify-content: center;
+}
+
+.error-container::after {
+  border-color: #ffffff !important;
+}
+
 .error {
   color: $error-color;
-  font-size: 1rem;
-  text-align: left;
-  margin-top: 0.25rem;
-  width: 10rem;
+  font-size: 0.75rem;
+  text-align: right;
+  // margin-top: 0.25rem;
+  background-color: rgb(242, 203, 203);
+}
+
+.input-error {
+  border-color: $error-color;
 }
 
 .checkbox {
   @include checkbox;
 }
 
+input {
+  width: 75%;
+}
+
 input,
 label {
-  padding: 12px 20px;
+  padding: 5px 10px;
   margin: 8px 0;
 }
 
 label {
+  font-size: 14px;
+  font-weight: 200;
   margin: 2px;
   font-weight: bold;
+  text-align: left;
 }
 
 button {
@@ -50,11 +101,10 @@ textarea,
 .addDetails {
   @include mx-auto;
   display: block;
-  width: 100%;
+  width: 85%;
   height: 10rem;
   resize: none;
   padding: 5px;
-  // border: 1px solid #ccc;
   border-radius: 3px;
 }
 
@@ -62,5 +112,12 @@ button:disabled {
   @include btn-loading;
 }
 
+img {
+  width: 300px;
+  height: 75%;
+  object-fit: fill;
+}
+
 @include outlineFocus("text");
 @include outlineFocus("email");
+@include outlineFocus("checkbox");

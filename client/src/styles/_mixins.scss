@@ -1,15 +1,24 @@
 @mixin checkbox {
   display: flex;
+  flex-direction: column;
+  font-weight: 200;
+  margin-left: 2px;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 @mixin form {
   display: flex;
   flex-wrap: wrap;
+  border-radius: 10px;
+  margin-top: 10%;
   flex-direction: column;
   align-content: center;
+  align-items: center;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  background-color: #faebd7;
 }
 
 @mixin outlineFocus($type) {
@@ -17,7 +26,7 @@
     outline: none;
     transition: 1s;
     &:focus {
-      border: 2px solid #3749ea;
+      border: 2px solid #c7c7cf;
     }
   }
 }
@@ -33,5 +42,11 @@
 
   &::after {
     content: "...";
+  }
+}
+
+@mixin respond-medium {
+  @media (max-width: 900px) {
+    @content;
   }
 }

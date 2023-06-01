@@ -8,6 +8,7 @@ import {
   TextInput,
 } from "../components";
 import { validationSchema } from "../schemas";
+import dreams from "../assets/dreams.jpg";
 
 const PrepForm = () => {
   const navigate = useNavigate();
@@ -27,8 +28,13 @@ const PrepForm = () => {
   };
 
   return (
-    <div>
-      <h1>1 on 1 Coaching Prep for Tim Quattrochi</h1>
+    <div className="form-wrapper">
+      <aside>
+        <h1>1 on 1 Coaching Prep for Tim Quattrochi</h1>
+
+        <img src={dreams} alt="inspiration photo" />
+      </aside>
+
       <Formik
         initialValues={{
           name: "",
@@ -89,7 +95,7 @@ const PrepForm = () => {
             />
 
             <CheckBoxInput name="emailResponses">
-              Send me a copy of my responses.
+              Send me a copy.
             </CheckBoxInput>
 
             <button type="submit" disabled={isSubmitting}>

@@ -1,4 +1,5 @@
 import { useField } from "formik";
+import { RiErrorWarningLine } from "react-icons/ri";
 
 const TextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
@@ -12,7 +13,12 @@ const TextInput = ({ label, ...props }) => {
         className={meta.touched && meta.error ? "input-error" : ""}
       />
       {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
+        <div className="error-container">
+          <span>
+            <RiErrorWarningLine fill="red" />
+          </span>
+          <div className="error">{meta.error}</div>
+        </div>
       ) : null}
     </>
   );
