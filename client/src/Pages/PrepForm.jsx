@@ -54,6 +54,7 @@ const PrepForm = () => {
               label="Name"
               name="name"
               type="text"
+              id="name"
               placeholder="Name"
             />
 
@@ -61,6 +62,7 @@ const PrepForm = () => {
               label="Email"
               name="email"
               type="email"
+              id="email"
               placeholder="Email"
             />
 
@@ -68,18 +70,21 @@ const PrepForm = () => {
               label="Please paste your repository link below"
               name="link"
               type="text"
+              id="link"
               placeholder="GitHub Repo"
             />
             <TextInput
               label="Which assignment are we working on today?"
               name="assignment"
               type="text"
+              id="assignment"
               placeholder=""
             />
 
             <SelectInput
               label="Which Cohort are you in?"
               name="cohortType"
+              id="cohortType"
               placeholder="Please select a cohort"
             >
               <option value="">Please select a cohort</option>
@@ -91,6 +96,7 @@ const PrepForm = () => {
             <TextArea
               label="Additional details you would like to share"
               name="addDetails"
+              id="addDetails"
               placeholder="Add in any additional details you can think of..."
             />
 

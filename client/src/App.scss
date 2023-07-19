@@ -31,7 +31,7 @@ select {
 .form-wrapper {
   background-color: $background-color;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-content: center;
   align-items: center;
   margin: 0px;
@@ -91,6 +91,7 @@ label {
 button {
   color: white;
   background-color: $btn-color;
+  margin: 2%;
   width: min-content;
   border-radius: 2px;
   height: 2rem;
@@ -116,6 +117,10 @@ img {
   width: 300px;
   height: 75%;
   object-fit: fill;
+}
+
+aside {
+  margin: 5%;
 }
 
 @include outlineFocus("text");

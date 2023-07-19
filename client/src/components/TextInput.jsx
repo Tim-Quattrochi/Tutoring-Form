@@ -6,7 +6,7 @@ const TextInput = ({ label, ...props }) => {
 
   return (
     <>
-      <label htmlFor={props.id || props.name}>{label}</label>
+      <label htmlFor={props.name}>{label}</label>
       <input
         {...field}
         {...props}

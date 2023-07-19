@@ -28,7 +28,7 @@ select {
 .form-wrapper {
   background-color: #fff8e7;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-content: center;
   align-items: center;
   margin: 0px;
@@ -43,7 +43,8 @@ form {
   display: flex;
   flex-wrap: wrap;
   border-radius: 10px;
-  margin-top: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   flex-direction: column;
   align-content: center;
   align-items: center;
@@ -102,6 +103,7 @@ label {
 button {
   color: white;
   background-color: #7039e7;
+  margin: 2%;
   width: -moz-min-content;
   width: min-content;
   border-radius: 2px;
@@ -135,6 +137,10 @@ img {
   height: 75%;
   -o-object-fit: fill;
      object-fit: fill;
+}
+
+aside {
+  margin: 5%;
 }
 
 input[type=text]:focus {
